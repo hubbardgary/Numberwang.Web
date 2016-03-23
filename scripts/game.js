@@ -181,6 +181,22 @@ function canMove() {
   return canMove;
 }
 
+function score() {
+  var points = 0;
+  forEachCell(function(i, j) {
+    points += board[i][j];
+  });
+  return points + getMaxNumber();
+}
+
+function getMaxNumber() {
+  var max = 0;
+  forEachCell(function(i, j) {
+    max = board[i][j] > max ? board[i][j] : max;
+  });
+  return max;
+}
+
 var forEachAdjacentCell = function(i, j, action) {
   for(var i1 = i - 1; i1 <= i + 1; i1++) {
     for(var j1 = j - 1; j1 <= j + 1; j1++) {
@@ -193,4 +209,12 @@ var forEachAdjacentCell = function(i, j, action) {
 
 function inBounds(i, j) {
   return i >= 0 && i < board.length && j >= 0 && j < board.length;
+}
+
+var forEachCell = function(action) {
+  for(var i = 0; i < board.length; i++) {
+    for(var j = 0; j < board.length; j++) {
+      action(i, j);
+    }
+  }
 }

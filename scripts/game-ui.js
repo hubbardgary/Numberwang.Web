@@ -1,6 +1,7 @@
 var $move;
 var moveInProgress = false;
-
+var score = 0;
+var gameInProgress;
 
 $(document).ready(function() {
 
@@ -27,7 +28,7 @@ $(document).ready(function() {
 		if(!moveInProgress) {
 			moveInProgress = true;
 			if(move(direction)) {
-				// Moved successfully. Animate and up board.
+				// Moved successfully. Animate and update board.
 				setMoveable();
 				$move.addClass('animate');
 				$move.addClass('move' + direction);
@@ -55,13 +56,15 @@ $(document).ready(function() {
 		displayBoard();
 		moveInProgress = false;
 		if(gameOver()) {
-			$('#gameOver').addClass('show');
+			gameInProgress = false;
+			$('.your-score').text('Your score: ' + score());
+			$('#game-over-modal').modal();
 		}
 	}
 
 	function setMoveable() {
-		$('div > div').removeClass('moveable');
-		var tiles = $('div > div');
+		$('.tile').removeClass('moveable');
+		var tiles = $('.tile');
 		var tileNo = 0;
 		for(var i = 0; i < moveMatrix.length; i++) {
 			for(var j = 0; j < moveMatrix.length; j++) {
@@ -71,43 +74,52 @@ $(document).ready(function() {
 				tileNo++;
 			}
 		}
-		$move = $(".moveable");
-		$move.on('webkitTransitionEnd', function(e) {
+		$move = $('.moveable');
+		$move.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			moveAnimationFinished();
 		});
 	}
 
-	$move = $(".moveable");
+	$move = $('.moveable');
 
-	$('.downButton').click(function (e) {
+	$('.down-button').click(function (e) {
 		performMove('down');
 	});
 
-	$('.upButton').click(function (e) {
+	$('.up-button').click(function (e) {
 		performMove('up');
 	});
 
-	$('.leftButton').click(function (e) {
+	$('.left-button').click(function (e) {
 		performMove('left');
 	});
 
-	$('.rightButton').click(function (e) {
+	$('.right-button').click(function (e) {
 		performMove('right');
 	});
 
-	$('.testButton').click(function (e) {
-		board = [
-			[3,3,3,3],
-			[3,3,3,3],
-			[3,3,3,3],
-			[3,3,3,3]
-		];
-	})
+	$('#board').swipe({
+		swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+			performMove(direction);
+		},
+		threshold: 50
+	});
+
+	$('.play-again').click(function (e) {
+		startGame();
+		$('#game-over-modal').modal('hide');
+	});
+
+	$('#game-over-modal').on('hidden.bs.modal', function() {
+		if(!gameInProgress)
+			$('.game-over').show();
+	});
 
 	function displayBoard() {
-		var tiles = $('div > div');
+		var tiles = $('.tile');
 		tiles.text('');
 		tiles.removeClass();
+		tiles.addClass('tile');
 		var tileNo = 0;
 		for(var i = 0; i < board.length; i++) {
 	    for(var j = 0; j < board.length; j++) {
@@ -118,15 +130,21 @@ $(document).ready(function() {
 				tileNo++;
 	    }
 		}
-		$move = $(".moveable");
-		$move.off('webkitTransitionEnd');
+		$move = $('.moveable');
+		$move.off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
 		updateNextTile();
 	};
 
 	function getClass(tileValue) {
-		return "e" + tileValue;
+		return 'e' + tileValue;
 	}
 
-	setBoard();
-	displayBoard();
+	function startGame() {
+		gameInProgress = true;
+		setBoard();
+		displayBoard();
+		$('.game-over').hide();
+	}
+
+	startGame();
 });
