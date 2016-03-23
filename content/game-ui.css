@@ -1,0 +1,94 @@
+#board div {
+    width: 400px;
+    height: 400px;
+    outline: 2px solid;
+}
+
+#board div div, #nextTile {
+    width: 100px;
+    height: 100px;
+    outline: 1px solid;
+    float: left;
+    font-size: 3em;
+    line-height: 100px; /* required for vertical align to work */
+    text-align: center;
+    vertical-align: middle;
+}
+
+#gameOver {
+  visibility: hidden;
+}
+
+#gameOver.show {
+  visibility: visible;
+}
+
+.animate {
+	transition-property: all;
+	transition-duration: 0.5s;
+}
+
+.moveable {
+
+}
+
+.moveDown {
+	/*background-color: blue;*/
+	transform: translateY(100px);
+}
+
+.moveUp {
+	transform: translateY(-100px);
+}
+
+.moveLeft {
+	transform: translateX(-100px);
+}
+
+.moveRight {
+	transform: translateX(100px);
+}
+
+.zero {
+  background-color: white;
+}
+.e3 {
+  background-color: #2878CB;
+  color: #85E5F9;
+}
+.e5 {
+  background-color: #26891E;
+  color: #8AFD81;
+}
+.e8 {
+  background-color: #BAA43F;
+  color: #FFFEA8;
+}
+.e16 {
+  background-color: #B579C2;
+  color: #FDEFFC;
+}
+.e32 {
+  background-color: #AF2A2B;
+  color: #FF9293;
+}
+.e64 {
+  background-color: #506E91;
+  color: #A8CEF7;
+}
+.e128 {
+  background-color: #C09264;
+  color: #FEFDF8;
+}
+.e256 {
+  background-color: #78B2B8;
+  color: #E7FDFC;
+}
+.e512 {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+.e1024 {
+  background-color: #000000;
+  color: #FFFFFF;
+}
