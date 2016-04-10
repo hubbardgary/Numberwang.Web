@@ -5,82 +5,90 @@
   </head>
   <body>
 
-    <!-- Nav bar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Numberwang Web</a>
-        </div>
-      </div>
-    </nav>
 
-    <!-- Page Content -->
-    <div class="container">
-      <div class="row toprow">
-        <div class="col-lg-12 text-center">
+        <!-- Nav bar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Numberwang Web</a>
+            </div>
+          </div>
+        </nav>
 
-          <div id="game">
-  					<span class="body-text">Next tile: </span><div id="nextTile"></div>
-            <br /><br />
-  					<span id="board">
-  						<div class="board-container">
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-  						</div>
-  					</span>
-            <br /><br />
-  					<button type="button" class="btn-lg btn-default up-button"><span class="glyphicon glyphicon-arrow-up"></span></button>
-            <br />
-            <button type="button" class="btn-lg btn-default left-button"><span class="glyphicon glyphicon-arrow-left"></span></button>
-  					<button type="button" class="btn-lg btn-default down-button"><span class="glyphicon glyphicon-arrow-down"></span></button>
-  					<button type="button" class="btn-lg btn-default right-button"><span class="glyphicon glyphicon-arrow-right"></span></button>
-            <br /><br />
-  					<p class="game-over">Game Over!</p>
-            <p class="game-over your-score">Your score: </p>
-            <button type="button" class="game-over play-again btn btn-lg btn-primary btn-block">Play again?</button>
+        <!-- Page Content -->
+        <div class="container">
+          <div class="row toprow">
+            <div class="col-lg-12 text-center">
+
+              <div id="game">
+      					<span class="body-text">Next tile: </span><div id="nextTile"></div>
+                <br /><br />
+      					<span id="board">
+      						<div class="board-container">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+      						</div>
+      					</span>
+                <br /><br />
+      					<button type="button" class="btn-lg btn-default up-button"><span class="glyphicon glyphicon-arrow-up"></span></button>
+                <br />
+                <button type="button" class="btn-lg btn-default left-button"><span class="glyphicon glyphicon-arrow-left"></span></button>
+      					<button type="button" class="btn-lg btn-default down-button"><span class="glyphicon glyphicon-arrow-down"></span></button>
+      					<button type="button" class="btn-lg btn-default right-button"><span class="glyphicon glyphicon-arrow-right"></span></button>
+                <br /><br />
+      					<p class="game-over">Game Over!</p>
+                <p class="game-over your-score">Your score: </p>
+                <button type="button" class="game-over play-again btn btn-lg btn-primary btn-block">Play again?</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-  	<!-- Game Over modal -->
-  	<div id="game-over-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  	  <div class="modal-dialog modal-sm">
-  		<div class="modal-content">
-  			<div class="modal-header header-text">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  				Game Over!
-  			</div>
-  			<div id="score" class="your-score modal-body body-text">
-  				Your score:
-  			</div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="play-again btn btn-lg btn-primary">Play again?</button>
-        </div>
-  		</div>
-  	  </div>
-  	</div>
+      	<!-- Game Over modal -->
+      	<div id="game-over-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      	  <div class="modal-dialog modal-sm">
+      		<div class="modal-content">
+      			<div class="modal-header header-text">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      				Game Over!
+      			</div>
+      			<div id="score" class="your-score modal-body body-text">
+      				Your score:
+      			</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="play-again btn btn-lg btn-primary">Play again?</button>
+            </div>
+      		</div>
+      	  </div>
+      	</div>
+
+
 
   	<script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.touchSwipe.min.js"></script>
   	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
   	<script type="text/javascript" src="scripts/game-ui.js"></script>
-  	<script type="text/javascript" src="scripts/game.js"></script>
+    <script type="text/javascript" src="scripts/mixin.js"></script>
+  	<script type="text/javascript" src="scripts/Game.js"></script>
+    <script type="text/javascript" src="scripts/Threes.js"></script>
+    <script type="text/javascript" src="scripts/Fives.js"></script>
+    <script type="text/javascript" src="scripts/Eights.js"></script>
+    <script type="text/javascript" src="scripts/TwentyFortyEight.js"></script>
 
   </body>
 </html>

@@ -62,33 +62,6 @@
 
 }
 
-.moveDown {
-  -webkit-transform: translateY(100px);
-      -ms-transform: translateY(100px);
-	        transform: translateY(100px);
-}
-
-.moveUp {
-  -webkit-transform: translateY(-100px);
-      -ms-transform: translateY(-100px);
-	        transform: translateY(-100px);
-}
-
-.moveLeft {
-  -webkit-transform: translateX(-100px);
-      -ms-transform: translateX(-100px);
-	        transform: translateX(-100px);
-}
-
-.moveRight {
-  -webkit-transform: translateX(100px);
-      -ms-transform: translateX(100px);
-	        transform: translateX(100px);
-}
-
-.zero {
-  background-color: white;
-}
 .e3 {
   background-color: #2878CB;
   color: #85E5F9;

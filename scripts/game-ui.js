@@ -2,6 +2,7 @@ var $move;
 var moveInProgress = false;
 var score = 0;
 var gameInProgress;
+var game;
 
 $(document).ready(function() {
 
@@ -27,11 +28,33 @@ $(document).ready(function() {
 	function performMove(direction) {
 		if(!moveInProgress) {
 			moveInProgress = true;
-			if(move(direction)) {
+			if(game.move(direction)) {
 				// Moved successfully. Animate and update board.
 				setMoveable();
 				$move.addClass('animate');
-				$move.addClass('move' + direction);
+				switch(direction) {
+					case 'up':
+						$move.each(function() {
+							$(this).css({"transform":"translateY(" + Number($(this).data('distance')) * -100 + "px)"});
+						});
+						break;
+					case 'down':
+						$move.each(function() {
+							$(this).css({"transform":"translateY(" + Number($(this).data('distance')) * 100 + "px)"});
+						});
+						break;
+					case 'left':
+						$move.each(function() {
+							$(this).css({"transform":"translateX(" + Number($(this).data('distance')) * -100 + "px)"});
+						});
+						break;
+					case 'right':
+						$move.each(function() {
+							$(this).css({"transform":"translateX(" + Number($(this).data('distance')) * 100 + "px)"});
+						});
+						break;
+				}
+				//$move.addClass('move' + direction);
 			}
 			else {
 				// Couldn't move in that direction
@@ -42,8 +65,8 @@ $(document).ready(function() {
 
 	function updateNextTile() {
 		$('#nextTile').removeClass()
-									.addClass(getClass(nextTile))
-									.text(nextTile);
+									.addClass(getClass(game.nextTile))
+									.text(game.nextTile);
 	}
 
 	var moveAnimationFinished = function() {
@@ -53,11 +76,13 @@ $(document).ready(function() {
 		$move.removeClass('moveUp');
 		$move.removeClass('moveLeft');
 		$move.removeClass('moveRight');
+		$move.removeAttr('style'); // Get rid of all dynamic styling - i.e. the stuff added in $.css() calls
+		$move.data('distance', '');
 		displayBoard();
 		moveInProgress = false;
-		if(gameOver()) {
+		if(game.gameOver()) {
 			gameInProgress = false;
-			$('.your-score').text('Your score: ' + score());
+			$('.your-score').text('Your score: ' + game.score());
 			$('#game-over-modal').modal();
 		}
 	}
@@ -66,10 +91,11 @@ $(document).ready(function() {
 		$('.tile').removeClass('moveable');
 		var tiles = $('.tile');
 		var tileNo = 0;
-		for(var i = 0; i < moveMatrix.length; i++) {
-			for(var j = 0; j < moveMatrix.length; j++) {
-				if(moveMatrix[i][j] !== 0) {
+		for(var i = 0; i < game.moveMatrix.length; i++) {
+			for(var j = 0; j < game.moveMatrix.length; j++) {
+				if(game.moveMatrix[i][j] !== 0) {
 					$(tiles[tileNo]).addClass('moveable');
+					$(tiles[tileNo]).data('distance', game.moveMatrix[i][j].toString());
 				}
 				tileNo++;
 			}
@@ -121,11 +147,11 @@ $(document).ready(function() {
 		tiles.removeClass();
 		tiles.addClass('tile');
 		var tileNo = 0;
-		for(var i = 0; i < board.length; i++) {
-	    for(var j = 0; j < board.length; j++) {
-	      if(board[i][j] !== 0) {
-					$(tiles[tileNo]).text(board[i][j]);
-					$(tiles[tileNo]).addClass(getClass(board[i][j]));
+		for(var i = 0; i < game.board.length; i++) {
+	    for(var j = 0; j < game.board.length; j++) {
+	      if(game.board[i][j] !== 0) {
+					$(tiles[tileNo]).text(game.board[i][j]);
+					$(tiles[tileNo]).addClass(getClass(game.board[i][j]));
 				}
 				tileNo++;
 	    }
@@ -140,8 +166,10 @@ $(document).ready(function() {
 	}
 
 	function startGame() {
+		game = Object.create(Eights);
 		gameInProgress = true;
-		setBoard();
+		game.setBoard();
+		game.printBoard();
 		displayBoard();
 		$('.game-over').hide();
 	}
