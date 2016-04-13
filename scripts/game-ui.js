@@ -54,7 +54,6 @@ $(document).ready(function() {
 						});
 						break;
 				}
-				//$move.addClass('move' + direction);
 			}
 			else {
 				// Couldn't move in that direction
@@ -65,6 +64,7 @@ $(document).ready(function() {
 
 	function updateNextTile() {
 		$('#nextTile').removeClass()
+									.addClass(game.type)
 									.addClass(getClass(game.nextTile))
 									.text(game.nextTile);
 	}
@@ -152,6 +152,12 @@ $(document).ready(function() {
 	      if(game.board[i][j] !== 0) {
 					$(tiles[tileNo]).text(game.board[i][j]);
 					$(tiles[tileNo]).addClass(getClass(game.board[i][j]));
+
+					$(tiles[tileNo]).addClass(game.type);
+					if(game.board[i][j] === game.getMaxNumber()) {
+						$(tiles[tileNo]).addClass('max');
+					}
+
 				}
 				tileNo++;
 	    }
@@ -162,11 +168,11 @@ $(document).ready(function() {
 	};
 
 	function getClass(tileValue) {
-		return 'e' + tileValue;
+		return game.type + '-' + tileValue;
 	}
 
 	function startGame() {
-		game = Object.create(Eights);
+		game = Object.create(Threes);
 		gameInProgress = true;
 		game.setBoard();
 		game.printBoard();

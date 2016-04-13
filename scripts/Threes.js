@@ -1,5 +1,5 @@
 var Threes = mixin(Game, {
-  type: "Threes",
+  type: "threes",
   spawnNumbers: [1, 2, 3],
   initialTileCount: 9,
 

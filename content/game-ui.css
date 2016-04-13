@@ -28,13 +28,13 @@
 }
 
 .tile, #nextTile {
-    width: 100px;
-    height: 100px;
+    width: 96px;
+    height: 96px;
     font-size: 3em;
     line-height: 100px; /* required for vertical align to work */
     text-align: center;
     vertical-align: middle;
-    border-radius: 20px;
+    margin: 2px;
 }
 .tile {
   position: relative;
@@ -59,56 +59,213 @@
 }
 
 .moveable {
-
+  z-index: 100;
 }
 
-.e3 {
+/**
+ * THREES STYLES
+ */
+.threes {
+  border-radius: 5px;
+  background-color: #8D95A6;
+  color: #000000;
+}
+.threes.max {
+  color: #FFE380;
+}
+.threes-1 {
+  background-color: #66CCFF;
+  color: #FFFFFF;
+}
+.threes-2 {
+  background-color: #FF6680;
+  color: #FFFFFF;
+}
+.threes-3 {
+  color: #000000 !important;
+}
+
+/**
+ * FIVES STYLES
+ */
+.fives {
+  border-radius: 50px;
+  background-color: #ECF0F1;
+}
+.fives-2 {
+  background-color: #34495E;
+  color: #ECF0F1;
+}
+.fives-3 {
+  background-color: #2ECC71;
+  color: #2C3E50;
+}
+.fives-5 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #1ABC9C;
+}
+.fives-10 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #E74C3C;
+}
+.fives-20 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #3498DB;
+}
+.fives-40 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #F1C40F;
+}
+.fives-80 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #9B59B6;
+}
+.fives-160 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #2ECC71;
+}
+.fives-320 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #C0392B;
+}
+.fives-640 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #8E44AD;
+}
+.fives-1280 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #F39C12;
+}
+.fives-2560 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #2980B9;
+}
+.fives-5120 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #27AE60;
+}
+.fives-10240 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #D35400;
+}
+.fives-20480 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #9B59B6;
+}
+.fives-40960 {
+  color: #2C3E50;
+  box-shadow: inset 0 0 0 6pt #F1C40F;
+}
+
+/**
+ * EIGHTS STYLES
+ */
+.eights {
+  border-radius: 20px;
+}
+.eights-3 {
   background-color: #2878CB;
   color: #85E5F9;
   box-shadow: inset 0 0 0 3pt #85E5F9;
 }
-.e5 {
+.eights-5 {
   background-color: #26891E;
   color: #8AFD81;
   box-shadow: inset 0 0 0 3pt #8AFD81;
 }
-.e8 {
+.eights-8 {
   background-color: #BAA43F;
   color: #FFFEA8;
   box-shadow: inset 0 0 0 3pt #FFFEA8;
 }
-.e16 {
+.eights-16 {
   background-color: #B579C2;
   color: #FDEFFC;
   box-shadow: inset 0 0 0 3pt #FDEFFC;
 }
-.e32 {
+.eights-32 {
   background-color: #AF2A2B;
   color: #FF9293;
   box-shadow: inset 0 0 0 3pt #FF9293;
 }
-.e64 {
+.eights-64 {
   background-color: #506E91;
   color: #A8CEF7;
   box-shadow: inset 0 0 0 3pt #A8CEF7;
 }
-.e128 {
+.eights-128 {
   background-color: #C09264;
   color: #FEFDF8;
   box-shadow: inset 0 0 0 3pt #FEFDF8;
 }
-.e256 {
+.eights-256 {
   background-color: #78B2B8;
   color: #E7FDFC;
   box-shadow: inset 0 0 0 3pt #E7FDFC;
 }
-.e512 {
+.eights-512 {
   background-color: #78B2B8;
   color: #E7FDFC;
   box-shadow: inset 0 0 0 3pt #E7FDFC;
 }
-.e1024 {
+.eights-1024 {
   background-color: #78B2B8;
   color: #E7FDFC;
   box-shadow: inset 0 0 0 3pt #E7FDFC;
+}
+
+
+/**
+ * 2048 STYLES
+ */
+ .twentyFortyEight {
+  border-radius: 2px;
+}
+.twentyFortyEight-2 {
+  background-color: #EFE3DE;
+  color: #7B716B;
+}
+.twentyFortyEight-4 {
+  background-color: #EEE2CD;
+  color: #7B6D63;
+}
+.twentyFortyEight-8 {
+  background-color: #EFB27B;
+  color: #FFF7F7;
+}
+.twentyFortyEight-16 {
+  background-color: #F79663;
+  color: #F7F7EF;
+}
+.twentyFortyEight-32 {
+  background-color: #F77D63;
+  color: #F7F3EF;
+}
+.twentyFortyEight-64 {
+  background-color: #F76142;
+  color: #F7F7F7;
+}
+.twentyFortyEight-128 {
+  background-color: #E7CE73;
+  color: #F7F3EF;
+}
+.twentyFortyEight-256 {
+  background-color: #EECA63;
+  color: #F7F7F7;
+}
+.twentyFortyEight-512 {
+  background-color: #E9B746;
+  color: #FFF7F7;
+}
+.twentyFortyEight-1024 {
+  background-color: #E7B33A;
+  color: #F7F7F7;
+}
+.twentyFortyEight-2048 {
+  background-color: #E7B02E;
+  color: #F7F7F7;
+}
+.twentyFortyEight-4096 {
+  background-color: #000000;
+  color: #FFFFFF;
 }

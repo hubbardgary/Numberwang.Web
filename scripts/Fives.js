@@ -1,5 +1,5 @@
 var Fives = mixin(Game, {
-  type: "Fives",
+  type: "fives",
   spawnNumbers: [2, 3],
   initialTileCount: 8,
   tileScore: {
@@ -45,7 +45,7 @@ var Fives = mixin(Game, {
   },
 
   mergeTiles: function(a, b) {
-    if(a === 0 && b != 0) {
+    if(a === 0 && b !== 0) {
       return b;
     }
     if((a >= 5 && a === b) || (b !== 0 && a + b === 5)) {

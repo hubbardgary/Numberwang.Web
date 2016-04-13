@@ -1,5 +1,5 @@
 var Eights = mixin(Game, {
-  type: "Eights",
+  type: "eights",
   spawnNumbers: [3, 5, 8],
   initialTileCount: 4,
 

@@ -1,5 +1,5 @@
 var TwentyFortyEight = mixin(Game, {
-  type: "2048",
+  type: "twentyFortyEight",
   spawnNumbers: [2, 4],
   initialTileCount: 3,
   mergeMatrix: [],

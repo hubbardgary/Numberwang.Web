@@ -1,5 +1,5 @@
 var Game = {
-  type: "BaseGame",
+  type: "baseGame",
   spawnNumbers: [],
   initialTileCount: 0,
   gameType: function () {
@@ -47,18 +47,6 @@ var Game = {
   //*****************************
   // Debug helper functions end *
   //*****************************
-
-  printMoveMatrix: function() {
-    var boardString = '';
-    for(var i = 0; i < this.moveMatrix.length; i++) {
-      for(var j = 0; j < this.moveMatrix.length; j++) {
-        boardString += this.moveMatrix[i][j];
-        boardString += ',';
-      }
-      boardString += '\n';
-    }
-    console.log(boardString);
-  },
 
   coordinate: function(x, y) {
     return {
@@ -111,7 +99,7 @@ var Game = {
   },
 
   rotateClockwise: function(board, degrees) {
-    if(degrees % 90 != 0 || degrees > 360 || degrees < 0) {
+    if(degrees % 90 !== 0 || degrees > 360 || degrees < 0) {
       // throw exception here
       return;
     }
@@ -165,7 +153,7 @@ var Game = {
     for(var x = 0; x < this.board.length; x++) {
       for(var y = 0; y < this.board.length - 1; y++) {
         var newValue = this.mergeTiles(this.board[x][y], this.board[x][y + 1]);
-        if(newValue != -1) {
+        if(newValue !== -1) {
           this.board[x][y] = newValue;
           this.board[x][y + 1] = 0;
           moved = true;
@@ -179,7 +167,7 @@ var Game = {
   // This should be sufficient for 3s and 8s
   mergeTiles: function(a, b) {
     var maxSpawn = Math.max.apply(null, this.spawnNumbers);
-    if(a === 0 && b != 0) {
+    if(a === 0 && b !== 0) {
       return b;
     }
     if((a >= maxSpawn && a === b) || (b !== 0 && a + b === maxSpawn)) {
@@ -200,7 +188,7 @@ var Game = {
     for(var i = 0; i < this.board.length; i++) {
       for(var j = 0; j < this.board.length; j++) {
         this.forEachAdjacentCell(i, j, this, function(i1, j1, _this) {
-          if(_this.mergeTiles(_this.board[i][j], _this.board[i1][j1]) != -1) {
+          if(_this.mergeTiles(_this.board[i][j], _this.board[i1][j1]) !== -1) {
             canMove = true;
           }
         });
