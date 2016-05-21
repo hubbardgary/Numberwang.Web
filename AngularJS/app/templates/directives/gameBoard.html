@@ -1,0 +1,9 @@
+<span id="board">
+  <div class="board-container"
+      ng-swipe-up="performMove('up')"
+      ng-swipe-left="performMove('left')"
+      ng-swipe-right="performMove('right')"
+      ng-swipe-down="performMove('down')">
+    <div ng-repeat="n in [].constructor(16) track by $index" class="tile"></div>
+  </div>
+</span>

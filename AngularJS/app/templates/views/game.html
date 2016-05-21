@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="col-lg-12 text-center">
+    <div id="game">
+      <div ng-show="gameOver()" class="col-lg-12 text-center">
+        <button type="button" class="game-over play-again btn btn-lg btn-primary btn-block" ng-click="navigateToMenu()">Play again?</button>
+        <br />
+      </div>
+      <div>
+        <div class="col-md-3"></div>
+        <div id="nextTileContainer" class="col-md-6">
+          <div>
+            <next-tile-directive ng-show="showNextTile()" />
+          </div>
+          <div>
+            <score-directive ng-show="showScore()"/>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <div>
+        <div>
+          <game-board-directive />
+        </div>
+        <br />
+        <button type="button" class="btn-lg btn-default up-button" ng-click="performMove('up')"><span class="glyphicon glyphicon-arrow-up"></span></button>
+        <br />
+        <button type="button" class="btn-lg btn-default left-button" ng-click="performMove('left')"><span class="glyphicon glyphicon-arrow-left"></span></button>
+        <button type="button" class="btn-lg btn-default down-button" ng-click="performMove('down')"><span class="glyphicon glyphicon-arrow-down"></span></button>
+        <button type="button" class="btn-lg btn-default right-button" ng-click="performMove('right')"><span class="glyphicon glyphicon-arrow-right"></span></button>
+      </div>
+    </div>
+  </div>
+</div>
