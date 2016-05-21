@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-lg-12 text-center">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <div ng-show="gameInProgress()">
+        <h3>Game In Progress</h3>
+        <button type="button" class="btn btn-lg btn-success" ng-click="resume()">Resume {{currentGame}}</button>
+        <button type="button" class="btn btn-lg btn-danger" ng-click="quit()">Quit {{currentGame}}</button>
+        <br /><br />
+      </div>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="col-lg-12 text-center">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 text-center">
+      <h3 ng-show="gameInProgress()">Start a New Game</h3>
+      <h3 ng-hide="gameInProgress()">Select a Game</h3>
+      <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="startGame('threes')">Threes</button>
+      <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="startGame('fives')">Fives</button>
+      <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="startGame('eights')">Eights</button>
+      <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="startGame('2048')">2048</button>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
