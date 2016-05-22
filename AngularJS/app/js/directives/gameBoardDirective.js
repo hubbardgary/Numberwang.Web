@@ -60,12 +60,12 @@ angular.module('numberwang.gameBoardDirective', ['swipe'])
       controller: function($scope, $attrs, GameService) {
         $scope.$on('handleMove', function(event, args) {
           var direction = args;
-          setmoving();
+          setMoving();
 
           var $movingTiles = $('.moving');
           $movingTiles.addClass('animate');
           $movingTiles.each(function() {
-            animate(this, direction, Number($(this).data('distance')))
+            animate(this, direction, Number($(this).data('distance')));
           });
         });
 
@@ -76,18 +76,22 @@ angular.module('numberwang.gameBoardDirective', ['swipe'])
           'right' : 'X'
         };
 
-        var distanceMap = {
-          'up' : -100,
-          'down' : 100,
-          'left' : -100,
-          'right' : 100
-        };
-
-        function animate(tile, direction, distance) {
-          $(tile).css({'transform':'translate' + axisMap[direction] + '(' + distance * distanceMap[direction] + 'px)'});
+        function getTravelDistance(direction) {
+          // Distance will depend on screen size. Base it on current width of one tile in board background.
+          var bgSize = window.getComputedStyle($('#board div.board-container')[0]).getPropertyValue('background-size');
+          var idx = bgSize.indexOf('px');
+          var distance = Number(bgSize.substring(0, idx));
+          if(direction === 'up' || direction === 'left') {
+            return -distance;
+          }
+          return distance;
         }
 
-        function setmoving() {
+        function animate(tile, direction, distance) {
+          $(tile).css({'transform':'translate' + axisMap[direction] + '(' + distance * getTravelDistance(direction) + 'px)'});
+        }
+
+        function setMoving() {
       		$('.tile').removeClass('moving');
       		var tiles = $('.tile');
       		var tileNo = 0;

@@ -1,3 +1,55 @@
+@media only screen and (min-width : 0px) {
+  #board div.board-container {
+    width: 280px;
+    height: 280px;
+    outline: 3px solid;
+    outline-color: gray;
+    padding: 3px;
+    box-shadow: 5px 8px 11px rgba(0,0,0,.5);
+    text-align: center;
+    background-color: ivory;
+    background-size: 68px 68px;
+    background-image: linear-gradient(to right, gainsboro 3px, transparent 1px),
+                      linear-gradient(to bottom, gainsboro 3px, transparent 1px);
+    background-position: 2px 2px;
+  }
+  .tile {
+    width: 66px;
+    height: 66px;
+    font-size: 2em;
+    line-height: 66px; /* required for vertical align to work */
+    margin: 1px;
+    position: relative;
+    float: left;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #board div.board-container {
+    width: 410px;
+    height: 410px;
+    outline: 5px solid;
+    outline-color: gray;
+    padding: 5px;
+    box-shadow: 8px 12px 16px rgba(0,0,0,.5);
+    text-align: center;
+    background-color: ivory;
+    background-size: 100px 100px;
+    background-image: linear-gradient(to right, gainsboro 5px, transparent 1px),
+                      linear-gradient(to bottom, gainsboro 5px, transparent 1px);
+    background-position: 3px 3px;
+  }
+  .tile {
+    width: 96px;
+    height: 96px;
+    font-size: 3em;
+    line-height: 96px; /* required for vertical align to work */
+    margin: 2px;
+    position: relative;
+    float: left;
+  }
+}
+
 .content {
   margin-top: 80px;
 }
@@ -17,20 +69,7 @@
   display: inline-block;
   margin-top: 10px;
 }
-#board div.board-container {
-  width: 410px;
-  height: 410px;
-  outline: 5px solid;
-  outline-color: gray;
-  padding: 5px;
-  box-shadow: 8px 12px 16px rgba(0,0,0,.5);
-  text-align: center;
-  background-color: ivory;
-  background-size: 100px 100px;
-  background-image: linear-gradient(to right, gainsboro 5px, transparent 1px),
-                    linear-gradient(to bottom, gainsboro 5px, transparent 1px);
-  background-position: 3px 3px;
-}
+
 
 #nextTileContainer {
   outline: 1px dotted;
@@ -41,15 +80,6 @@
 .tile, #nextTile {
   text-align: center;
   vertical-align: middle;
-}
-.tile {
-  width: 96px;
-  height: 96px;
-  font-size: 3em;
-  line-height: 96px; /* required for vertical align to work */
-  margin: 2px;
-  position: relative;
-  float: left;
 }
 #nextTile {
   width: 48px;
