@@ -50,6 +50,9 @@
   }
 }
 
+body {
+  margin-bottom: 100px;
+}
 .content {
   margin-top: 80px;
 }
