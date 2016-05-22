@@ -72,4 +72,8 @@ angular.module('numberwang.game', ['ngRoute', 'ui.bootstrap'])
     // Manually apply scope to ensure game over triggers correctly.
     $scope.$apply();
   });
+
+  if(GameService.game == null) {
+    $scope.navigateToMenu();
+  }
 }]);

@@ -12,7 +12,9 @@ angular.module('numberwang.gameBoardDirective', ['swipe'])
           $scope.GameService = GameService;
           $scope.animationCount = 0;
 
-          refreshBoard();
+          if(GameService.game != null) {
+            refreshBoard();
+          }
 
           element.on('transitionend', function(e) { endAnimation(e); });
           element.on('webkitTransitionEnd', function(e) { endAnimation(e); });
