@@ -8,7 +8,9 @@ angular.module('numberwang.nextTileDirective', [])
     replace: true,
     templateUrl: 'templates/directives/nextTile.html',
     link: function ($scope, element, attrs) {
-      updateNextTile(GameService.game.type, GameService.game.nextTile);
+      if(GameService.game != null) {
+        updateNextTile(GameService.game.type, GameService.game.nextTile);
+      }
     },
 
     controller: function($scope, $attrs, GameService) {
